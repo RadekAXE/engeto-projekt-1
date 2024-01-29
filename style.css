@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Background-colors */
+  --bc-navigation: #33292a;
+  --bc-dark-brown: #33292a;
+  --bc-light-brown: #644b4f;
+  --bc-trip-grey: #f2f2f2;
+  --bc-footer: #333333;
+
+  /* Font-colors */
+  --fc-primary-white: #fff;
+  --fc-primary-black: #000;
+
+  /* Link colors */
+  --link-primary-color: #efa69d;
+  --link-primary-hover-color: #e9877b;
+
+  /* Typography */
+  --fs-h1: clamp(2.5rem, 3rem + 2vw, 5rem);
+  --fs-h2: 2rem;
+  --fs-usp-icons: 1.2rem;
+  --fs-footer: 0.67rem;
+  --fw-400: 400;
+  --fw-700: 700;
+
+  /* Circle images */
+  --image-circle-radius: 50%;
+  --image-circle-size: 9.375rem;
+
+  /* Borders */
+  --br-images: 0.25rem;
+  --br-buttons: 0.25rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Reusable blocks */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+p,
+h2 {
+  padding-bottom: 2rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+a {
+  color: var(--link-primary-color);
+}
+
+a:hover {
+  color: var(--link-primary-hover-color);
+}
+
+/* Buttons */
+
+.btn-nav {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--fc-primary-white);
+}
+
+.btn-primary {
+  color: var(--fc-primary-black);
+  text-transform: uppercase;
+  border: none;
+  padding: 1em 1.5em;
+  font-weight: var(--fw-700);
+  cursor: pointer;
+}
+
+.btn-primary--contact {
+  border-radius: var(--br-buttons);
+}
+/* Navigation */
+.navigation {
+  background-color: var(--bc-navigation);
+  padding: 1rem 0;
+  font-weight: var(--fw-700);
+}
+
+.navigation a,
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  color: var(--fc-primary-white);
+}
+.navigation a:hover {
+  color: var(--link-primary-hover-color);
+}
+
+.navigation__items {
+  display: none;
+  text-transform: capitalize;
+}
+
+.navigation__burger {
+  display: flex;
+  justify-content: flex-end;
+}
+.fa-bars:before {
+  font-size: 2rem;
+}
+
+.nav__item {
+  transition: 0.3s ease-in-out;
+}
+
+.nav__item:hover {
+  text-decoration: underline;
+  transform: scale(1.09);
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation__burger {
+    display: none;
+  }
+
+  .navigation__items {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Hero section */
+.hero-section {
+  background-image: url(./images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg);
+  height: calc(100dvh - 64px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-section__hero-text {
+  color: var(--fc-primary-white);
+  text-align: right;
+  margin-bottom: 3rem;
+  font-size: var(--fs-h1);
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-section {
+    height: 85dvh;
+  }
+}
+
+/* About us section */
+.about__col {
+  flex-basis: 50%;
+}
+
+.about__image-wrapper {
+  flex-basis: 50%;
+  background-image: url(./images/anneliese-phillips-uv4-vl3liKM-unsplash.jpg);
+  background-position: center 70%;
+  background-size: cover;
+  height: 400px;
+}
+
+@media only screen and (min-width: 768px) {
+  .about__image-wrapper {
+    height: auto;
+  }
+  .about__content {
+    padding-bottom: 0;
+  }
+}
+
+.about__image-wrapper > img {
+  border-radius: var(--br-images);
+}
+
+/* What we do section */
+.usp {
+  background-color: var(--bc-dark-brown);
+}
+
+.usp__heading,
+.usp__content {
+  color: var(--fc-primary-white);
+  text-align: center;
+}
+
+.usp__content {
+  padding-bottom: 4rem;
+}
+
+.usp__activities {
+  color: var(--fc-primary-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 80px;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: var(--fs-usp-icons);
+  margin-bottom: 2rem;
+}
+
+.icon-wrapper {
+  width: 100%;
+  min-width: 70px;
+  text-align: center;
+}
+
+/* Our trips section */
+
+.grid-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, 0.5fr);
+  grid-gap: 0.5rem;
+}
+
+.grid-gallery img {
+  border-radius: var(--br-images);
+}
+
+.grid__item-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: var(--fw-700);
+  background-color: var(--bc-trip-grey);
+  border-radius: var(--br-images);
+}
+
+@media only screen and (min-width: 768px) {
+  .grid-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1.2rem;
+  }
+}
+
+/* Contact section */
+.contact {
+  background-color: var(--bc-light-brown);
+}
+
+.contact__heading,
+.contact__content,
+.contact__action {
+  color: var(--fc-primary-white);
+}
+
+.contact__heading {
+  flex-basis: 33.33%;
+}
+
+.contact__content {
+  padding-bottom: 1rem;
+}
+
+/* Reviews section */
+
+.reviews {
+  text-align: center;
+}
+
+.reviews-intro__text {
+  padding-bottom: 4rem;
+}
+
+.reviewer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.reviewer p {
+  padding: 0;
+}
+
+.reviewer__image-wrapper > img {
+  border-radius: var(--image-circle-radius);
+  width: var(--image-circle-size);
+  height: var(--image-circle-size);
+}
+
+.reviewer__name {
+  font-weight: var(--fw-700);
+}
+
+@media only screen and (max-width: 768px) {
+  .reviews--col {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+/* Gallery section */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-image-wrapper {
+  flex: 1 1 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .gallery-image-wrapper {
+    flex: 1 1 50%;
+  }
+}
+
+/* Footer section */
+footer {
+  background-color: var(--bc-footer);
+  text-align: center;
+  padding: 2rem;
+}
+.footer__contact {
+  padding-bottom: 0.625rem;
+}
+.footer__contact > a {
+  color: var(--link-primary-color);
+}
+
+.copyright {
+  color: var(--fc-primary-white);
+  font-size: var(--fs-footer);
+}
+
+/* Layout Media queries */
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 70%;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+  .usp__activities {
+    margin: 0;
+  }
+
+  .reviews-intro {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
